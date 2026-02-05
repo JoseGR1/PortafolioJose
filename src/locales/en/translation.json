@@ -1,0 +1,71 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "skills": "Skills",
+        "projects": "Projects",
+        "experience": "Experience",
+        "contact": "Contact"
+    },
+    "hero": {
+        "greeting": "Hi, I'm",
+        "role": "Software Developer",
+        "description": "Building exceptional digital experiences with modern technologies.",
+        "ctaProjects": "View Projects",
+        "ctaContact": "Contact Me"
+    },
+    "about": {
+        "title": "About Me",
+        "description": "I am a developer passionate about creating intuitive and dynamic web interfaces. With experience in the JavaScript ecosystem, I enjoy transforming complex ideas into elegant and scalable solutions."
+    },
+    "skills": {
+        "title": "Technical Skills",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "tools": "Tools",
+        "design": "Design"
+    },
+    "projects": {
+        "title": "Featured Projects",
+        "viewCode": "Code",
+        "viewDemo": "Demo",
+        "p1": {
+            "title": "Project Alpha",
+            "desc": "A comprehensive dashboard for analytics with real-time data visualization."
+        },
+        "p2": {
+            "title": "E-commerce Platform",
+            "desc": "Full-stack e-commerce solution with payment integration and inventory management."
+        },
+        "p3": {
+            "title": "Task Manager App",
+            "desc": "Productivity tool for teams with real-time collaboration features."
+        }
+    },
+    "experience": {
+        "title": "Work Experience",
+        "e1": {
+            "role": "Senior Frontend Developer",
+            "company": "Tech Corp",
+            "desc": "Leading the frontend team, architecting scalable solutions, and improving web performance."
+        },
+        "e2": {
+            "role": "Full Stack Developer",
+            "company": "StartUp Inc",
+            "desc": "Developed key features for the main product, managed database migrations, and implemented CI/CD pipelines."
+        }
+    },
+    "contact": {
+        "title": "Contact Me",
+        "description": "Do you have a project in mind? Let's build something awesome together.",
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "send": "Send Message",
+        "placeholders": {
+            "name": "John Doe",
+            "email": "john@example.com",
+            "message": "Tell me about your project..."
+        }
+    }
+}

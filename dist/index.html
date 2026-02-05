@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio Personal</title>
+  <script>
+    // Apply theme immediately to prevent flash
+    (function () {
+      const theme = localStorage.getItem('vite-ui-theme') || 'dark';
+      if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+  <script type="module" crossorigin src="/assets/index-BPZ2JaQD.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DJS6jmDv.css">
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>

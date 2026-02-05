@@ -1,0 +1,71 @@
+{
+    "nav": {
+        "home": "Inicio",
+        "about": "Sobre mí",
+        "skills": "Habilidades",
+        "projects": "Proyectos",
+        "experience": "Experiencia",
+        "contact": "Contacto"
+    },
+    "hero": {
+        "greeting": "Hola, soy",
+        "role": "Desarrollador de Software",
+        "description": "Construyendo experiencias digitales excepcionales con tecnologías modernas.",
+        "ctaProjects": "Ver Proyectos",
+        "ctaContact": "Contáctame"
+    },
+    "about": {
+        "title": "Sobre mí",
+        "description": "Soy un desarrollador apasionado por crear interfaces web intuitivas y dinámicas. Con experiencia en el ecosistema de JavaScript, disfruto transformando ideas complejas en soluciones elegantes y escalables."
+    },
+    "skills": {
+        "title": "Habilidades Técnicas",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "tools": "Herramientas",
+        "design": "Diseño"
+    },
+    "projects": {
+        "title": "Proyectos Destacados",
+        "viewCode": "Código",
+        "viewDemo": "Demo",
+        "p1": {
+            "title": "Project Alpha",
+            "desc": "Un panel de control integral para análisis con visualización de datos en tiempo real."
+        },
+        "p2": {
+            "title": "Plataforma E-commerce",
+            "desc": "Solución completa de comercio electrónico con integración de pagos y gestión de inventario."
+        },
+        "p3": {
+            "title": "Gestor de Tareas",
+            "desc": "Herramienta de productividad para equipos con funciones de colaboración en tiempo real."
+        }
+    },
+    "experience": {
+        "title": "Experiencia Laboral",
+        "e1": {
+            "role": "Desarrollador Frontend Senior",
+            "company": "Tech Corp",
+            "desc": "Liderando el equipo de frontend, arquitectando soluciones escalables y mejorando el rendimiento web."
+        },
+        "e2": {
+            "role": "Desarrollador Full Stack",
+            "company": "StartUp Inc",
+            "desc": "Desarrollo de funcionalidades clave, gestión de migraciones de base de datos y pipelines CI/CD."
+        }
+    },
+    "contact": {
+        "title": "Contáctame",
+        "description": "¿Tienes un proyecto en mente? Construyamos algo increíble juntos.",
+        "name": "Nombre",
+        "email": "Correo",
+        "message": "Mensaje",
+        "send": "Enviar Mensaje",
+        "placeholders": {
+            "name": "Juan Pérez",
+            "email": "juan@ejemplo.com",
+            "message": "Cuéntame sobre tu proyecto..."
+        }
+    }
+}
