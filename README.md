@@ -1,10 +1,7 @@
 # Portafolio Personal - Jose
 
-Un portafolio moderno y responsive construido con React, TypeScript, TailwindCSS y Vite. Incluye internacionalización (ES/EN) y animaciones suaves.
+Un portafolio moderno y responsive construido con React, TypeScript, TailwindCSS y Vite.
 
-## Demo
-
-[Link a Demo](#) (TBD)
 
 ## Tecnologías
 
@@ -13,29 +10,6 @@ Un portafolio moderno y responsive construido con React, TypeScript, TailwindCSS
 - **Router**: React Router DOM v6
 - **i18n**: i18next + react-i18next
 - **Linting**: ESLint + Prettier
-
-## Instalación
-
-1. Clonar el repositorio:
-   ```bash
-   git clone <repo-url>
-   cd portafolio-jose
-   ```
-
-2. Instalar dependencias:
-   ```bash
-   npm install
-   ```
-
-3. Ejecutar en desarrollo:
-   ```bash
-   npm run dev
-   ```
-
-4. Construir para producción:
-   ```bash
-   npm run build
-   ```
 
 ## Estructura de Carpetas
 
