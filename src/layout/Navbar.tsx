@@ -5,6 +5,9 @@ import { clsx } from 'clsx';
 import { motion } from 'framer-motion';
 import { LanguageSwitch } from '@/common/LanguageSwitch';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import logoDark from '@/assets/logoDark.svg';
+import logoLight from '@/assets/logoLight.svg';
 
 const navItems = [
     { key: 'home', href: '#home' },
@@ -17,6 +20,7 @@ const navItems = [
 
 export function Navbar() {
     const { t } = useTranslation();
+    const { theme } = useTheme();
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
@@ -55,8 +59,12 @@ export function Navbar() {
             )}
         >
             <div className="container mx-auto px-6 h-full flex items-center justify-between">
-                <a href="#" className="text-2xl font-bold tracking-tighter text-primary">
-                    Jose<span className="text-foreground">.dev</span>
+                <a href="#" className="flex items-center">
+                    <img
+                        src={theme === 'dark' ? logoDark : logoLight}
+                        alt="Jose.dev"
+                        className="h-10 w-auto transition-opacity duration-300"
+                    />
                 </a>
 
                 {/* Desktop Menu */}
