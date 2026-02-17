@@ -20,10 +20,10 @@
     },
     "skills": {
         "title": "Habilidades Técnicas",
-        "frontend": "Frontend",
-        "backend": "Backend",
-        "tools": "Herramientas",
-        "design": "Diseño"
+        "languages": "Lenguajes",
+        "frameworks": "Frameworks y Tecnologías",
+        "databases": "Base de Datos",
+        "tools": "Herramientas y DevOps"
     },
     "projects": {
         "title": "Proyectos Destacados",

@@ -20,10 +20,10 @@
     },
     "skills": {
         "title": "Technical Skills",
-        "frontend": "Frontend",
-        "backend": "Backend",
-        "tools": "Tools",
-        "design": "Design"
+        "languages": "Languages",
+        "frameworks": "Frameworks & Technologies",
+        "databases": "Databases",
+        "tools": "Tools & DevOps"
     },
     "projects": {
         "title": "Featured Projects",
