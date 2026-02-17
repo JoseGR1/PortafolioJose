@@ -151,6 +151,13 @@ export function Navbar() {
                                         className="h-10 w-auto"
                                     />
                                 </a>
+                                <button
+                                    className="p-2 text-foreground"
+                                    onClick={() => setIsOpen(false)}
+                                    aria-label="Close menu"
+                                >
+                                    <X size={28} />
+                                </button>
                             </div>
 
                             {/* Navigation Links */}

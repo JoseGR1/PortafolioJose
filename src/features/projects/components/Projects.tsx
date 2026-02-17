@@ -72,7 +72,11 @@ export function Projects() {
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">{t('projects.title')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
                 {projects.map((project) => (
-                    <Card key={project.id} className="group hover:shadow-lg transition-all duration-300 flex flex-col h-full relative">
+                    <Card
+                        key={project.id}
+                        className="group hover:shadow-lg transition-all duration-300 flex flex-col h-full relative cursor-pointer"
+                        onClick={() => setSelectedProject(project)}
+                    >
                         <CardHeader>
                             <CardTitle>{t(project.titleKey)}</CardTitle>
                         </CardHeader>
