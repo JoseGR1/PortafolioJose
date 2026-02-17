@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SectionContainer } from '@/layout/SectionContainer';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { X } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { clsx } from 'clsx';
 
 interface Project {
@@ -15,6 +15,7 @@ interface Project {
     detailsKey: string;
     tags: string[];
     image?: string;
+    galleryImages?: string[];
 }
 
 const projects: Project[] = [
@@ -25,7 +26,16 @@ const projects: Project[] = [
         fullDescKey: 'projects.p1.fullDesc',
         detailsKey: 'projects.p1.details',
         tags: ['Spring Boot', 'Spring Security', 'React', 'TypeScript', 'PostgreSQL', 'DigitalOcean'],
-        image: '/assets/projects/tcp.png'
+        image: '/assets/projects/tcp.png',
+        galleryImages: [
+            '/assets/projects/tcp/tcp1.png',
+            '/assets/projects/tcp/tcp2.png',
+            '/assets/projects/tcp/tcp3.png',
+            '/assets/projects/tcp/tcp4.png',
+            '/assets/projects/tcp/tcp5.png',
+            '/assets/projects/tcp/tcp6.png',
+            '/assets/projects/tcp/tcp7.png'
+        ]
     },
     {
         id: '2',
@@ -51,6 +61,21 @@ export function Projects() {
     const { t } = useTranslation();
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [isImageExpanded, setIsImageExpanded] = useState(false);
+    const [activeTcpImageIndex, setActiveTcpImageIndex] = useState(0);
+
+    // Auto-slide effect for the TCP card preview
+    useEffect(() => {
+        let interval: NodeJS.Timeout;
+        if (!selectedProject && !isImageExpanded) {
+            interval = setInterval(() => {
+                const tcpProject = projects.find(p => p.id === '1');
+                if (tcpProject?.galleryImages) {
+                    setActiveTcpImageIndex((prev) => (prev + 1) % tcpProject.galleryImages!.length);
+                }
+            }, 3000); // Change image every 3 seconds
+        }
+        return () => clearInterval(interval);
+    }, [selectedProject, isImageExpanded]);
 
     // Body scroll lock
     useEffect(() => {
@@ -76,59 +101,92 @@ export function Projects() {
         return () => window.removeEventListener('keydown', handleEsc);
     }, [isImageExpanded]);
 
+    const handleNextImage = (e: React.MouseEvent, total: number) => {
+        e.stopPropagation();
+        setActiveTcpImageIndex((prev) => (prev + 1) % total);
+    };
+
+    const handlePrevImage = (e: React.MouseEvent, total: number) => {
+        e.stopPropagation();
+        setActiveTcpImageIndex((prev) => (prev - 1 + total) % total);
+    };
+
+    const getImageUrl = (imagePath?: string) => {
+        if (!imagePath) return '';
+        const path = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
+        return `${import.meta.env.BASE_URL}${path}`;
+    };
+
     return (
         <SectionContainer id="projects">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">{t('projects.title')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-                {projects.map((project) => (
-                    <Card
-                        key={project.id}
-                        className="group hover:shadow-lg transition-all duration-300 flex flex-col h-full relative cursor-pointer"
-                        onClick={() => setSelectedProject(project)}
-                    >
-                        {/* Project Image Container */}
-                        {project.image && (
-                            <div className="relative h-52 w-full overflow-hidden rounded-t-2xl">
-                                <img
-                                    src={`${import.meta.env.BASE_URL}${project.image.startsWith('/') ? project.image.slice(1) : project.image}`}
-                                    alt={t(project.titleKey)}
-                                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
-                                />
-                                {/* Dark Gradient Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
-                            </div>
-                        )}
+                {projects.map((project) => {
+                    const hasGallery = project.galleryImages && project.galleryImages.length > 0;
+                    const currentImage = (hasGallery && project.id === '1')
+                        ? project.galleryImages![activeTcpImageIndex]
+                        : project.image;
 
-                        <CardHeader className={clsx(!project.image && "pt-6")}>
-                            <CardTitle>{t(project.titleKey)}</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex-grow">
-                            <p className="text-muted-foreground mb-6 line-clamp-3">
-                                {t(project.descKey)}
-                            </p>
-                            <div className="flex flex-wrap gap-2 mb-4">
-                                {project.tags.map(tag => (
-                                    <span key={tag} className="bg-primary/20 text-primary text-xs px-2.5 py-0.5 rounded-full font-medium">
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        </CardContent>
-                        <CardFooter className="pt-2 justify-start">
-                            <Button
-                                className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-primary text-primary hover:bg-primary/10 hover:text-primary"
-                                variant="outline"
-                                size="sm"
-                                onClick={(e) => {
-                                    e.stopPropagation(); // Prevent card click trigger
-                                    setSelectedProject(project);
-                                }}
-                            >
-                                {t('projects.viewMore')}
-                            </Button>
-                        </CardFooter>
-                    </Card>
-                ))}
+                    return (
+                        <Card
+                            key={project.id}
+                            className="group hover:shadow-lg transition-all duration-300 flex flex-col h-full relative cursor-pointer"
+                            onClick={() => setSelectedProject(project)}
+                        >
+                            {/* Project Image Container */}
+                            {currentImage && (
+                                <div className="relative w-full overflow-hidden rounded-t-2xl bg-muted/20">
+                                    <div className="relative h-52 w-full overflow-hidden">
+                                        <AnimatePresence mode="wait">
+                                            <motion.img
+                                                key={currentImage}
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                exit={{ opacity: 0 }}
+                                                transition={{ duration: 0.5 }}
+                                                src={getImageUrl(currentImage)}
+                                                alt={t(project.titleKey)}
+                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                            />
+                                        </AnimatePresence>
+
+                                        {/* Dark Gradient Overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
+                                    </div>
+                                </div>
+                            )}
+
+                            <CardHeader className={clsx(!currentImage && "pt-6")}>
+                                <CardTitle>{t(project.titleKey)}</CardTitle>
+                            </CardHeader>
+                            <CardContent className="flex-grow">
+                                <p className="text-muted-foreground mb-6 line-clamp-3">
+                                    {t(project.descKey)}
+                                </p>
+                                <div className="flex flex-wrap gap-2 mb-4">
+                                    {project.tags.map(tag => (
+                                        <span key={tag} className="bg-primary/20 text-primary text-xs px-2.5 py-0.5 rounded-full font-medium">
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </CardContent>
+                            <CardFooter className="pt-2 justify-start">
+                                <Button
+                                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-primary text-primary hover:bg-primary/10 hover:text-primary"
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={(e) => {
+                                        e.stopPropagation(); // Prevent card click trigger
+                                        setSelectedProject(project);
+                                    }}
+                                >
+                                    {t('projects.viewMore')}
+                                </Button>
+                            </CardFooter>
+                        </Card>
+                    );
+                })}
             </div>
 
             <AnimatePresence>
@@ -160,17 +218,67 @@ export function Projects() {
                             </button>
 
                             <div className="p-8 max-h-[85vh] overflow-y-auto no-scrollbar">
-                                {selectedProject.image && (
-                                    <div
-                                        className="relative w-full h-64 md:h-80 mb-8 rounded-2xl overflow-hidden shadow-lg border border-border cursor-zoom-in group/modal-img"
-                                        onClick={() => setIsImageExpanded(true)}
-                                    >
-                                        <img
-                                            src={`${import.meta.env.BASE_URL}${selectedProject.image.startsWith('/') ? selectedProject.image.slice(1) : selectedProject.image}`}
-                                            alt={t(selectedProject.titleKey)}
-                                            className="w-full h-full object-cover transition-transform duration-500 group-hover/modal-img:scale-105"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+                                {(selectedProject.galleryImages?.[activeTcpImageIndex] || selectedProject.image) && (
+                                    <div className="flex flex-col gap-4 mb-8">
+                                        <div
+                                            className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden shadow-lg border border-border cursor-zoom-in group/modal-img"
+                                            onClick={() => setIsImageExpanded(true)}
+                                        >
+                                            <AnimatePresence mode="wait">
+                                                <motion.img
+                                                    key={selectedProject.galleryImages?.[activeTcpImageIndex] || selectedProject.image}
+                                                    initial={{ opacity: 0 }}
+                                                    animate={{ opacity: 1 }}
+                                                    exit={{ opacity: 0 }}
+                                                    transition={{ duration: 0.3 }}
+                                                    src={getImageUrl(selectedProject.galleryImages?.[activeTcpImageIndex] || selectedProject.image)}
+                                                    alt={t(selectedProject.titleKey)}
+                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover/modal-img:scale-105"
+                                                />
+                                            </AnimatePresence>
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+
+                                            {/* Gallery Controls in Modal */}
+                                            {selectedProject.galleryImages && (
+                                                <>
+                                                    <button
+                                                        onClick={(e) => handlePrevImage(e, selectedProject.galleryImages!.length)}
+                                                        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors z-10"
+                                                    >
+                                                        <ChevronLeft className="h-6 w-6" />
+                                                    </button>
+                                                    <button
+                                                        onClick={(e) => handleNextImage(e, selectedProject.galleryImages!.length)}
+                                                        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors z-10"
+                                                    >
+                                                        <ChevronRight className="h-6 w-6" />
+                                                    </button>
+                                                </>
+                                            )}
+                                        </div>
+
+                                        {/* Thumbnails row in Modal */}
+                                        {selectedProject.galleryImages && (
+                                            <div className="flex gap-2 p-1 overflow-x-auto no-scrollbar pb-2">
+                                                {selectedProject.galleryImages.map((img, idx) => (
+                                                    <button
+                                                        key={img}
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            setActiveTcpImageIndex(idx);
+                                                        }}
+                                                        className={clsx(
+                                                            "relative h-14 w-20 shrink-0 rounded-lg overflow-hidden transition-all duration-300 hover:scale-105",
+                                                            activeTcpImageIndex === idx
+                                                                ? "ring-2 ring-primary ring-offset-2 ring-offset-background"
+                                                                : "opacity-50 hover:opacity-100"
+                                                        )}
+                                                    >
+                                                        <img src={getImageUrl(img)} className="w-full h-full object-cover" />
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
                                 )}
                                 <h3 className="text-2xl font-bold mb-2">{t(selectedProject.titleKey)}</h3>
@@ -210,7 +318,7 @@ export function Projects() {
 
             {/* Image Lightbox */}
             <AnimatePresence>
-                {isImageExpanded && selectedProject?.image && (
+                {isImageExpanded && (selectedProject?.galleryImages?.[activeTcpImageIndex] || selectedProject?.image) && (
                     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12">
                         <motion.div
                             initial={{ opacity: 0 }}
@@ -234,8 +342,8 @@ export function Projects() {
                             initial={{ opacity: 0, scale: 0.9, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                            src={`${import.meta.env.BASE_URL}${selectedProject.image.startsWith('/') ? selectedProject.image.slice(1) : selectedProject.image}`}
-                            alt={t(selectedProject.titleKey)}
+                            src={getImageUrl(selectedProject?.galleryImages?.[activeTcpImageIndex] || selectedProject?.image)}
+                            alt={t(selectedProject?.titleKey || '')}
                             className="relative max-w-full max-h-full object-contain rounded-xl shadow-2xl z-[105]"
                         />
                     </div>
