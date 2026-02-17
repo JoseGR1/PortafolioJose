@@ -27,20 +27,45 @@
     },
     "projects": {
         "title": "Proyectos Destacados",
-        "viewCode": "Código",
-        "viewDemo": "Demo",
-        "viewDetails": "Detalles",
+        "viewMore": "Ver más",
+        "close": "Cerrar",
+        "technologies": "Tecnologías",
         "p1": {
             "title": "Sistema SaaS – Control de Tiempo Laboral (TCP) · 2025",
-            "desc": "Sistema web tipo SaaS para gestión y control de tiempo laboral en empresa de hospitalidad y estancias temporales en EE. UU."
+            "desc": "Sistema web tipo SaaS para gestión y control de tiempo laboral en empresa de hospitalidad y estancias temporales en EE. UU.",
+            "fullDesc": "Sistema web tipo SaaS para la gestión y control de tiempo laboral en una empresa de hospitalidad y estancias temporales en EE. UU.",
+            "details": [
+                "Backend con Java y Spring Boot bajo arquitectura REST",
+                "Autenticación y autorización con JWT (Spring Security)",
+                "Gestión de dependencias y build con Maven",
+                "Persistencia de datos en PostgreSQL",
+                "Frontend con React y TypeScript",
+                "Despliegue a producción en DigitalOcean"
+            ]
         },
         "p2": {
             "title": "Aplicación Móvil – Gestión de Activos Institucionales · 2025",
-            "desc": "Aplicación móvil para localización, listado e identificación de activos; sincronización con backend mediante APIs REST y almacenamiento local."
+            "desc": "Aplicación móvil para localización, listado e identificación de activos; sincronización con backend mediante APIs REST y almacenamiento local.",
+            "fullDesc": "Aplicación móvil para localización, listado e identificación de activos; sincronización con backend mediante APIs REST y almacenamiento local.",
+            "details": [
+                "Localización y listado de activos institucionales",
+                "Identificación de activos usando el dispositivo móvil",
+                "Autenticación con JWT",
+                "Almacenamiento local con SQLite",
+                "Sincronización con backend mediante APIs REST",
+                "Despliegue en VPS"
+            ]
         },
         "p3": {
             "title": "Data Warehouse · 2024",
-            "desc": "Implementación de un modelo dimensional tipo Star Schema con procesos ETL en PL/SQL y separación de capas (Producción, Stage y DW)."
+            "desc": "Implementación de un modelo dimensional tipo Star Schema con procesos ETL en PL/SQL y separación de capas (Producción, Stage y DW).",
+            "fullDesc": "Implementación de un Data Warehouse con modelo dimensional tipo Star Schema y procesos ETL en PL/SQL, con separación de capas para asegurar orden y consistencia de datos.",
+            "details": [
+                "Modelo dimensional tipo Star Schema",
+                "ETL implementado en PL/SQL",
+                "Separación de capas: Producción, Stage y Data Warehouse",
+                "Enfoque en organización y consistencia de datos"
+            ]
         }
     },
     "experience": {

@@ -27,20 +27,45 @@
     },
     "projects": {
         "title": "Featured Projects",
-        "viewCode": "Code",
-        "viewDemo": "Demo",
-        "viewDetails": "Details",
+        "viewMore": "See more",
+        "close": "Close",
+        "technologies": "Technologies",
         "p1": {
             "title": "SaaS System – Labor Time Control (TCP) · 2025",
-            "desc": "SaaS web system for labor time management and control in a hospitality and temporary stays company in the USA."
+            "desc": "SaaS web system for labor time management and control in a hospitality and temporary stays company in the USA.",
+            "fullDesc": "SaaS web system for labor time management and control in a hospitality and temporary stays company in the USA.",
+            "details": [
+                "Backend with Java and Spring Boot under REST architecture",
+                "Authentication and authorization with JWT (Spring Security)",
+                "Dependency management and build with Maven",
+                "Data persistence in PostgreSQL",
+                "Frontend with React and TypeScript",
+                "Production deployment on DigitalOcean"
+            ]
         },
         "p2": {
             "title": "Mobile App – Institutional Asset Management · 2025",
-            "desc": "Mobile application for asset location, listing, and identification; synchronization with backend via REST APIs and local storage."
+            "desc": "Mobile application for asset location, listing, and identification; synchronization with backend via REST APIs and local storage.",
+            "fullDesc": "Mobile application for asset location, listing, and identification; synchronization with backend via REST APIs and local storage.",
+            "details": [
+                "Asset localization and listing functionalities",
+                "Asset identification using the mobile device",
+                "Authentication with JWT",
+                "Local storage with SQLite",
+                "Synchronization with backend via REST APIs",
+                "Deployment on VPS"
+            ]
         },
         "p3": {
             "title": "Data Warehouse · 2024",
-            "desc": "Implementation of a Star Schema dimensional model with ETL processes in PL/SQL and layer separation (Production, Stage, and DW)."
+            "desc": "Star Schema dimensional model with ETL processes in PL/SQL and layer separation (Production, Stage, and DW).",
+            "fullDesc": "Implementation of a Data Warehouse with a Star Schema dimensional model and ETL processes in PL/SQL, with layer separation to ensure order and consistency of data.",
+            "details": [
+                "Star Schema dimensional model",
+                "ETL processes implemented in PL/SQL",
+                "Layer separation: Production, Stage, and Data Warehouse",
+                "Focus on data organization and consistency"
+            ]
         }
     },
     "experience": {
