@@ -64,6 +64,81 @@
     --input: 217 32% 15%;
     --ring: 210 100% 50%;
   }
+
+  @keyframes soft-pulse-glow {
+
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+      filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.4));
+    }
+
+    50% {
+      opacity: 0.85;
+      transform: scale(1.02);
+      filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.7));
+    }
+  }
+
+  .animate-soft-pulse-glow {
+    animation: soft-pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes glow-scan {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .glow-active {
+    position: relative;
+    z-index: 1;
+  }
+
+  .glow-active::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(59, 130, 246, 0.3),
+        #3b82f6,
+        #2563eb,
+        #3b82f6,
+        rgba(59, 130, 246, 0.3),
+        transparent);
+    background-size: 200% 100%;
+    animation: glow-scan 4s linear infinite;
+    border-radius: inherit;
+    z-index: -1;
+    /* This mask ensures the effect only appears at the edges */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 3px;
+    /* Thickness of the edge glow */
+    filter: blur(6px);
+    opacity: 0.9;
+    pointer-events: none;
+    transition: all 0.4s ease;
+  }
+
+  .glow-active:hover::before {
+    opacity: 1;
+    filter: blur(10px);
+    padding: 5px;
+  }
 }
 
 @layer base {

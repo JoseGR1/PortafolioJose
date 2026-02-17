@@ -4,7 +4,7 @@
         "about": "Sobre mí",
         "skills": "Habilidades",
         "projects": "Proyectos",
-        "experience": "Experiencia",
+        "education": "Formación Académica",
         "contact": "Contacto"
     },
     "hero": {
@@ -68,17 +68,20 @@
             ]
         }
     },
-    "experience": {
-        "title": "Experiencia Laboral",
+    "education": {
+        "title": "Formación Académica",
+        "inProgress": "En curso",
         "e1": {
-            "role": "Desarrollador Frontend Senior",
-            "company": "Tech Corp",
-            "desc": "Liderando el equipo de frontend, arquitectando soluciones escalables y mejorando el rendimiento web."
+            "title": "Ingeniería en Sistemas",
+            "company": "Universidad Mariano Gálvez de Guatemala",
+            "period": "2021 – 2025",
+            "desc": "Formación en desarrollo de software, bases de datos, arquitectura de sistemas y buenas prácticas de programación."
         },
         "e2": {
-            "role": "Desarrollador Full Stack",
-            "company": "StartUp Inc",
-            "desc": "Desarrollo de funcionalidades clave, gestión de migraciones de base de datos y pipelines CI/CD."
+            "title": "Maestría en Seguridad Informática",
+            "company": "Universidad Mariano Gálvez de Guatemala",
+            "period": "2026 – En curso",
+            "desc": "Especialización en seguridad de aplicaciones, gestión de riesgos y protección de la información."
         }
     },
     "contact": {

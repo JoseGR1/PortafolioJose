@@ -4,7 +4,7 @@
         "about": "About",
         "skills": "Skills",
         "projects": "Projects",
-        "experience": "Experience",
+        "education": "Education",
         "contact": "Contact"
     },
     "hero": {
@@ -68,17 +68,20 @@
             ]
         }
     },
-    "experience": {
-        "title": "Work Experience",
+    "education": {
+        "title": "Education",
+        "inProgress": "In progress",
         "e1": {
-            "role": "Senior Frontend Developer",
-            "company": "Tech Corp",
-            "desc": "Leading the frontend team, architecting scalable solutions, and improving web performance."
+            "title": "Systems Engineering",
+            "company": "Mariano Gálvez University of Guatemala",
+            "period": "2021 – 2025",
+            "desc": "Training in software development, databases, systems architecture, and good programming practices."
         },
         "e2": {
-            "role": "Full Stack Developer",
-            "company": "StartUp Inc",
-            "desc": "Developed key features for the main product, managed database migrations, and implemented CI/CD pipelines."
+            "title": "Master's in Cybersecurity",
+            "company": "Mariano Gálvez University of Guatemala",
+            "period": "2026 – In progress",
+            "desc": "Specialization in application security, risk management, and information protection."
         }
     },
     "contact": {
