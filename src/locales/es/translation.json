@@ -29,17 +29,18 @@
         "title": "Proyectos Destacados",
         "viewCode": "Código",
         "viewDemo": "Demo",
+        "viewDetails": "Detalles",
         "p1": {
-            "title": "Project Alpha",
-            "desc": "Un panel de control integral para análisis con visualización de datos en tiempo real."
+            "title": "Sistema SaaS – Control de Tiempo Laboral (TCP) · 2025",
+            "desc": "Sistema web tipo SaaS para gestión y control de tiempo laboral en empresa de hospitalidad y estancias temporales en EE. UU."
         },
         "p2": {
-            "title": "Plataforma E-commerce",
-            "desc": "Solución completa de comercio electrónico con integración de pagos y gestión de inventario."
+            "title": "Aplicación Móvil – Gestión de Activos Institucionales · 2025",
+            "desc": "Aplicación móvil para localización, listado e identificación de activos; sincronización con backend mediante APIs REST y almacenamiento local."
         },
         "p3": {
-            "title": "Gestor de Tareas",
-            "desc": "Herramienta de productividad para equipos con funciones de colaboración en tiempo real."
+            "title": "Data Warehouse · 2024",
+            "desc": "Implementación de un modelo dimensional tipo Star Schema con procesos ETL en PL/SQL y separación de capas (Producción, Stage y DW)."
         }
     },
     "experience": {

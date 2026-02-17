@@ -10,25 +10,28 @@ const projects = [
         id: '1',
         titleKey: 'projects.p1.title',
         descKey: 'projects.p1.desc',
-        tags: ['React', 'D3.js', 'Tailwind'],
+        tags: ['Spring Boot', 'Spring Security', 'React', 'TypeScript', 'PostgreSQL', 'DigitalOcean'],
         demoUrl: '#',
-        repoUrl: '#'
+        repoUrl: '#',
+        hasDemo: true
     },
     {
         id: '2',
         titleKey: 'projects.p2.title',
         descKey: 'projects.p2.desc',
-        tags: ['Next.js', 'Stripe', 'Prisma'],
+        tags: ['Flutter', 'SQLite', 'APIs REST', 'JWT', 'VPS'],
         demoUrl: '#',
-        repoUrl: '#'
+        repoUrl: '#',
+        hasDemo: true
     },
     {
         id: '3',
         titleKey: 'projects.p3.title',
         descKey: 'projects.p3.desc',
-        tags: ['TypeScript', 'Firebase', 'Framer Motion'],
+        tags: ['Star Schema', 'PL/SQL', 'ETL', 'Data Warehouse'],
         demoUrl: '#',
-        repoUrl: '#'
+        repoUrl: '#',
+        hasDemo: false
     }
 ];
 
@@ -40,11 +43,11 @@ export function Projects() {
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">{t('projects.title')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((project) => (
-                    <Card key={project.id} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <Card key={project.id} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col">
                         <CardHeader>
                             <CardTitle>{t(project.titleKey)}</CardTitle>
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="flex-grow">
                             <p className="text-muted-foreground mb-6 line-clamp-3">
                                 {t(project.descKey)}
                             </p>
@@ -71,7 +74,7 @@ export function Projects() {
                                 rel="noopener noreferrer"
                                 className={buttonVariants({ variant: 'primary', size: 'sm', className: 'w-full' })}
                             >
-                                <ExternalLink className="mr-2 h-4 w-4" /> {t('projects.viewDemo')}
+                                <ExternalLink className="mr-2 h-4 w-4" /> {project.hasDemo ? t('projects.viewDemo') : t('projects.viewDetails')}
                             </a>
                         </CardFooter>
                     </Card>

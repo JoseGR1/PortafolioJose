@@ -29,17 +29,18 @@
         "title": "Featured Projects",
         "viewCode": "Code",
         "viewDemo": "Demo",
+        "viewDetails": "Details",
         "p1": {
-            "title": "Project Alpha",
-            "desc": "A comprehensive dashboard for analytics with real-time data visualization."
+            "title": "SaaS System – Labor Time Control (TCP) · 2025",
+            "desc": "SaaS web system for labor time management and control in a hospitality and temporary stays company in the USA."
         },
         "p2": {
-            "title": "E-commerce Platform",
-            "desc": "Full-stack e-commerce solution with payment integration and inventory management."
+            "title": "Mobile App – Institutional Asset Management · 2025",
+            "desc": "Mobile application for asset location, listing, and identification; synchronization with backend via REST APIs and local storage."
         },
         "p3": {
-            "title": "Task Manager App",
-            "desc": "Productivity tool for teams with real-time collaboration features."
+            "title": "Data Warehouse · 2024",
+            "desc": "Implementation of a Star Schema dimensional model with ETL processes in PL/SQL and layer separation (Production, Stage, and DW)."
         }
     },
     "experience": {
